@@ -52,7 +52,8 @@ int fileman_read(char *fname, size_t foffset, char *buf, size_t boffset, size_t 
  */
 int fileman_write(char *fname, size_t foffset, char *buf, size_t boffset, size_t size) 
 {
-	int file = open(fname, O_WRONLY|O_CREAT|O_EXCL);
+	int file = creat(fname, S_IRUSR);
+	//int file = open(fname, O_WRONLY|O_CREAT|O_EXCL);
 	
 	if(file == -1)
 		return -1;
