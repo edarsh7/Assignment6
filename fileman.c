@@ -44,7 +44,7 @@ int fileman_read(char *fname, size_t foffset, char *buf, size_t boffset, size_t 
 
 	char *x = fgets(buf, (int)size, file);
 	size_t len = strlen(x);
-	return (int)len;
+	return (int)len+1;
 	
 
 }
