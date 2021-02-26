@@ -28,7 +28,7 @@ int fileman_read(char *fname, size_t foffset, char *buf, size_t boffset, size_t 
 	printf("size: %zu \n", size);
 	while(*temp != '\0')
 	{
-		printf("%c ",*temp);
+		printf("%c",*temp);
 		temp++;
 	}
 	temp = buf;
