@@ -32,6 +32,7 @@ int fileman_read(char *fname, size_t foffset, char *buf, size_t boffset, size_t 
 		temp++;
 	}
 	printf("\n");
+	return -1;
 }
 
 /*
