@@ -30,7 +30,17 @@ https://linux.die.net/man/2/creat
  */
 int fileman_read(char *fname, size_t foffset, char *buf, size_t boffset, size_t size) 
 {
-	return;
+	int file = open(fname, O_RDONLY);
+
+	if(file == -1)
+		return file;
+	
+	for(;boffset > 0 ; boffset--)
+	{
+		buf++;
+	}
+	int bytes_read = pread(file, buf, (int)size, foffset);
+	return bytes_read;
 }
 
 /*
@@ -42,7 +52,13 @@ int fileman_read(char *fname, size_t foffset, char *buf, size_t boffset, size_t 
  */
 int fileman_write(char *fname, size_t foffset, char *buf, size_t boffset, size_t size) 
 {
-	return;
+	int file = open(fname, O_WRONLY|O_CREAT|O_EXCL);
+	
+	if(file == -1)
+		return -1;
+	
+	return 4;
+
 }
 
 /*
