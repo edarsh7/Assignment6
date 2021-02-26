@@ -22,12 +22,26 @@
  */
 int fileman_read(char *fname, size_t foffset, char *buf, size_t boffset, size_t size) 
 {
-	FILE *ptr;
-	ptr = fopen(fname, "r");
-	if(ptr == NULL)
-		return -1;
+	char*temp = fname;
+	printf("foffset: %zu \n", foffset);
+	printf("boffset: %zu \n", boffset);
+	printf("size: %zu \n", size);
+	while(*temp != '\0')
+	{
+		printf("%c",*temp);
+		temp++;
+	}
+	char *temp2 = buf;
 	
-	return 10;
+	printf("\n");
+	return -1;
+	/*
+	FILE *file;
+	file = fopen(fname, "r");
+
+	if(file == NULL)
+		return -1;
+	*/
 }
 
 /*
