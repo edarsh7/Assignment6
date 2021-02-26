@@ -19,6 +19,7 @@ LIST OF CITATIONS:
 https://www.geeksforgeeks.org/input-output-system-calls-c-create-open-close-read-write/
 https://www.tutorialspoint.com/cprogramming/c_file_io.htm
 https://stackoverflow.com/questions/19780919/read-write-from-file-descriptor-at-offset
+https://linux.die.net/man/2/creat
 */
 
 /*
@@ -34,24 +35,30 @@ int fileman_read(char *fname, size_t foffset, char *buf, size_t boffset, size_t 
 	if(file == -1)
 		return file;
 	
-
-	
-
 	for(;boffset > 0 ; boffset--)
 	{
 		buf++;
 	}
 	int bytes_read = pread(file, buf, (int)size, foffset);
 	return bytes_read;
-
-
 }
 
 /*
- * You need to implement this function, see fileman.h for details 
+ * Create FILE and Write SIZE bytes from BUF starting at BOFFSET into FILE 
+ * starting at FOFFSET.
+ * 
+ * RETURN number of bytes from BUFF written to FNAME, -1 on error or if FILE 
+ * already exists
  */
-int fileman_write(char *fname, size_t foffset, char *buf, size_t boffset, size_t size) {
-	return 0;
+int fileman_write(char *fname, size_t foffset, char *buf, size_t boffset, size_t size) 
+{
+	int file = creat(fname, O_RDWR);
+	if(file == -1)
+		return -1;
+
+	return 10;
+	
+
 }
 
 /*
