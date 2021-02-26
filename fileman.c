@@ -41,8 +41,8 @@ int fileman_read(char *fname, size_t foffset, char *buf, size_t boffset, size_t 
 	if(file == -1)
 		return file;
 	
-	size_t bytes_read = read (file, buf, size);
-	return (int)bytes_read;
+	int bytes_read = read (file, buf, size);
+	return bytes_read;
 
 
 }
