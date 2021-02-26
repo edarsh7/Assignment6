@@ -10,10 +10,22 @@
 #include "fileman.h"
 
 /*
+ * Read at most SIZE bytes from FNAME starting at FOFFSET into BUF starting 
+ * at BOFFSET.
+ *
+ * RETURN number of bytes read from FNAME into BUFF, -1 on error.
+ */
+/*
  * You need to implement this function, see fileman.h for details 
  */
-int fileman_read(char *fname, size_t foffset, char *buf, size_t boffset, size_t size) {
-	return 0;
+int fileman_read(char *fname, size_t foffset, char *buf, size_t boffset, size_t size) 
+{
+	char*temp = fname;
+	while(temp != NULL)
+	{
+		printf("%c");
+		temp++;
+	}
 }
 
 /*
