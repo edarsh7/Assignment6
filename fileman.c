@@ -15,6 +15,13 @@
 #include <unistd.h>
 
 /*
+LIST OF CITATIONS:
+https://www.geeksforgeeks.org/input-output-system-calls-c-create-open-close-read-write/
+https://www.tutorialspoint.com/cprogramming/c_file_io.htm
+https://stackoverflow.com/questions/19780919/read-write-from-file-descriptor-at-offset
+*/
+
+/*
  * Read at most SIZE bytes from FNAME starting at FOFFSET into BUF starting 
  * at BOFFSET.
  *
@@ -22,24 +29,6 @@
  */
 int fileman_read(char *fname, size_t foffset, char *buf, size_t boffset, size_t size) 
 {
-	/*
-	char*temp = fname;
-	printf("foffset: %zu \n", foffset);
-	printf("boffset: %zu \n", boffset);
-	printf("size: %zu \n", size);
-	while(*temp != '\0')
-	{
-		printf("%c",*temp);
-		temp++;
-	}
-	char *temp2 = buf;
-	
-	printf("\n");
-	return -1;
-	*/
-
-
-
 	int file = open(fname, O_RDONLY);
 
 	if(file == -1)
@@ -52,7 +41,7 @@ int fileman_read(char *fname, size_t foffset, char *buf, size_t boffset, size_t 
 	{
 		buf++;
 	}
-	int bytes_read = read(file, buf, (int)size);
+	int bytes_read = pread(file, buf, (int)size, foffset);
 	return bytes_read;
 
 
