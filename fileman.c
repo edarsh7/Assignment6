@@ -25,7 +25,7 @@ int fileman_read(char *fname, size_t foffset, char *buf, size_t boffset, size_t 
 	char*temp = fname;
 	while(temp != NULL)
 	{
-		printf("%c");
+		printf("%c",*temp);
 		temp++;
 	}
 }
