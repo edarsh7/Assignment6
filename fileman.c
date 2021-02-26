@@ -23,7 +23,7 @@
 int fileman_read(char *fname, size_t foffset, char *buf, size_t boffset, size_t size) 
 {
 	FILE *ptr;
-	ptr = fopen(fname,r);
+	ptr = fopen(fname, "r");
 	if(ptr == NULL)
 		return -1;
 	
