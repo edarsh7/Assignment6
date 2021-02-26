@@ -8,6 +8,8 @@
  ***********************************************************************/
 
 #include "fileman.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 /*
  * Read at most SIZE bytes from FNAME starting at FOFFSET into BUF starting 
