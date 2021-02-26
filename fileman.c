@@ -48,9 +48,9 @@ int fileman_read(char *fname, size_t foffset, char *buf, size_t boffset, size_t 
 
 	for(;foffset > 0 ; foffset--)
 	{
-		fname++;
+		file++;
 	}
-	
+
 	for(;boffset > 0 ; boffset--)
 	{
 		buf++;
