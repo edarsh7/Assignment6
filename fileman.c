@@ -12,6 +12,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <fcntl.h>
+#include <unistd.h>
 
 /*
  * Read at most SIZE bytes from FNAME starting at FOFFSET into BUF starting 
