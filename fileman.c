@@ -32,11 +32,7 @@ int fileman_read(char *fname, size_t foffset, char *buf, size_t boffset, size_t 
 		temp++;
 	}
 	char *temp2 = buf;
-	while(*temp2 != '\0')
-	{
-		printf("%c ",*temp2);
-		temp2++;
-	}
+	
 	printf("\n");
 	return -1;
 }
