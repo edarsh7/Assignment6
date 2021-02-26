@@ -17,11 +17,9 @@
  *
  * RETURN number of bytes read from FNAME into BUFF, -1 on error.
  */
-/*
- * You need to implement this function, see fileman.h for details 
- */
 int fileman_read(char *fname, size_t foffset, char *buf, size_t boffset, size_t size) 
 {
+	/*
 	char*temp = fname;
 	printf("foffset: %zu \n", foffset);
 	printf("boffset: %zu \n", boffset);
@@ -35,13 +33,17 @@ int fileman_read(char *fname, size_t foffset, char *buf, size_t boffset, size_t 
 	
 	printf("\n");
 	return -1;
-	/*
+	*/
+	
 	FILE *file;
 	file = fopen(fname, "r");
 
 	if(file == NULL)
 		return -1;
-	*/
+
+	char *x = fgets(buf, (int)size, file);
+	
+
 }
 
 /*
