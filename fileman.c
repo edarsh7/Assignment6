@@ -36,22 +36,14 @@ int fileman_read(char *fname, size_t foffset, char *buf, size_t boffset, size_t 
 	printf("\n");
 	return -1;
 	*/
-	/*
-	FILE *file;
-	file = fopen(fname, "r");
-
-	if(file == NULL)
-		return -1;
-
-
-	char *x = fgets(buf, (int)size, file);
-	size_t len = strlen(x);
-	return (int)len+1;
-	*/
 
 	int file = open(fname, O_RDONLY);
 	if(file == -1)
 		return file;
+	
+	size_t bytes_read = read(file, buf, size);
+	return (int)bytes_read;
+
 
 }
 
