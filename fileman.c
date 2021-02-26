@@ -53,7 +53,7 @@ int fileman_read(char *fname, size_t foffset, char *buf, size_t boffset, size_t 
 		buf++;
 	}
 	int bytes_read = read(file, buf, (int)size);
-	return bytes_read-foffset;
+	return bytes_read;
 
 
 }
