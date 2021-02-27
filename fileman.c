@@ -84,6 +84,7 @@ int fileman_write(char *fname, size_t foffset, char *buf, size_t boffset, size_t
  * does not exist
  */
 int fileman_append(char *fname, char *buf, size_t size) {
+
 	int file = open(fname, O_APPEND|O_RDWR);
 
 	if(file == -1)
@@ -94,7 +95,7 @@ int fileman_append(char *fname, char *buf, size_t size) {
 		buf++;
 	}
 
-	int bytes_read = pwrite(file, buf, size, foffset);
+	int bytes_read = write(file, buf, size);
 	return bytes_read;
 	
 
