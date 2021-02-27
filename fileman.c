@@ -136,10 +136,8 @@ void fileman_dir(int fd, char *dname)
 	struct dirent *dp;
 
 	dir = opendir(dname);
-	printf("no");
 	while((dp = readdir(dir)) != NULL)
 	{
-		printf("yes");
 		printf("%s ", dp->d_name);
 	}
 
