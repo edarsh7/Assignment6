@@ -132,16 +132,12 @@ int fileman_copy(char *fsrc, char *fdest) {
  */
 void fileman_dir(int fd, char *dname)
 {
-	DIR* dir = opendir(dname);
-	struct dirent *dirEntry;
-	struct stat inode;
-	char name[1000];
+	DIR *dir;
+	struct dirent dir_entry;
 
-	while((dirEntry = readdir(dir)) != 0)
-	{
-		sprintf(name, "%s/%s", dname, dirEntry->d_name);
-		lstat(name, &inode);
-	}
+	dir = opendir(dname);
+	dir_entry = readdir(dir);
+	printf("%s", dir_entry->d_name);
 	
 }
 
