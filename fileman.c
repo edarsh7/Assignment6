@@ -116,7 +116,7 @@ int fileman_copy(char *fsrc, char *fdest) {
 
 	int x = read(f_src, buf, (int)stat_src.st_size);
 	int y = write(f_dest, buf, x);
-	
+	free(buf);
 	return y;
 
 	
