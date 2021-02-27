@@ -138,7 +138,8 @@ void fileman_dir(int fd, char *dname)
 	dir = opendir(dname);
 	while((dp = readdir(dir)) != NULL)
 	{
-		dir = opendir(dp->d_name);
+		if((dir = opendir(dp->d_name)) == NULL)
+			break;
 		printf("%s \n",dp->d_name);
 	}
 
