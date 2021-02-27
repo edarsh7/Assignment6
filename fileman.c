@@ -54,11 +54,11 @@ int fileman_write(char *fname, size_t foffset, char *buf, size_t boffset, size_t
 {
 	//use creat()
 	//rm -rf data.dir before running fileman b
-	int file = creat(fname, S_IWUSR);
-	if(file == -1)
+	int file = 0;
+	file = creat(fname, S_IWUSR);
+	if(file == 0)
 		return -1;
-	else
-		printf("wtf man\n");
+	
 
 }
 
