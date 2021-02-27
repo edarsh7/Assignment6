@@ -76,11 +76,31 @@ int fileman_write(char *fname, size_t foffset, char *buf, size_t boffset, size_t
 	return bytes_read;
 }
 
+
 /*
- * You need to implement this function, see fileman.h for details 
+ * Append SIZE bytes from BUF to existing FILE.
+ * 
+ * RETURN number of bytes from BUFF appended to FNAME, -1 on error or if FILE 
+ * does not exist
  */
 int fileman_append(char *fname, char *buf, size_t size) {
-	return 0;
+	int file = open(fname, O_APPEND|O_RDWR);
+
+	if(file == -1)
+		return file;
+
+	for(;boffset > 0 ; boffset--)
+	{
+		buf++;
+	}
+
+	int bytes_read = pwrite(file, buf, size, foffset);
+	return bytes_read;
+	
+
+	
+
+	
 }
 
 /*
