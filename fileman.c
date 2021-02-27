@@ -56,7 +56,7 @@ int fileman_write(char *fname, size_t foffset, char *buf, size_t boffset, size_t
 	//use creat()
 	//rm -rf data.dir before running fileman b
 	int file = creat(fname, 0666);
-	return file;
+	printf("%s \n", strerror(errno));
 	
 	
 
