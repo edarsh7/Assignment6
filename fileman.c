@@ -19,7 +19,7 @@
 
 
 
-
+int tab_ct = 0;
 /*
 LIST OF CITATIONS:
 https://www.geeksforgeeks.org/input-output-system-calls-c-create-open-close-read-write/
@@ -144,16 +144,23 @@ void fileman_dir(int fd, char *dname)
 	{
 		if(strcmp(dp->d_name, ".") == 0   || strcmp(dp->d_name, "..") == 0)
 			continue;
-		
+
+		int temp = tab_ct;
+		while(temp != 0)
+		{
+			printf("\t");
+			temp--;
+		}
 		printf("%s \n", dp->d_name);
 		strcpy(path, dname);
 		strcat(path, "/");
 		strcat(path, dp->d_name);
+		tab_ct++;
 		fileman_dir(fd, path);
 		
 		
 	}
-	printf("\n");
+	printf("\t\n");
 	closedir(dir);
 }
 
