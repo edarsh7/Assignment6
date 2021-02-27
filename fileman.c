@@ -17,7 +17,7 @@
 #include <sys/types.h>
 #include <dirent.h>
 
-int tab_ct = 0;
+int tab_ct = 1;
 int set = 1;
 
 
