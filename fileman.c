@@ -136,10 +136,10 @@ void fileman_dir(int fd, char *dname)
 	struct dirent *dp;
 
 	dir = opendir(dname);
-	dp = readdir(dir);
-	dp = readdir(dir);
-	dp = readdir(dir);
-	printf("%s",dp->d_name);
+	while((dp = readdir(dir)) != NULL)
+	{
+		printf("%s "dp->d_name);
+	}
 	
 }
 
