@@ -56,7 +56,7 @@ int fileman_write(char *fname, size_t foffset, char *buf, size_t boffset, size_t
 	int file = open(fname, O_WRONLY|O_CREAT|O_EXCL);
 	printf("%d \n",file);
 	
-
+	return 0;
 }
 
 /*
