@@ -108,7 +108,9 @@ int fileman_copy(char *fsrc, char *fdest) {
 	if(f_src == -1 || stat(fdest, &stat_dest) == 0)
 		return -1;
 
-	
+	struct stat stat_src;
+	stat(fsrc, &stat_src);
+	printf("%d", stat_src.st_size);
 	
 }
 
