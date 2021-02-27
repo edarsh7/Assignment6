@@ -54,16 +54,8 @@ int fileman_read(char *fname, size_t foffset, char *buf, size_t boffset, size_t 
  */
 int fileman_write(char *fname, size_t foffset, char *buf, size_t boffset, size_t size) 
 {
-	FILE *file = fopen(fname, "rwx");
-	if(file)
-	{
-
-	}
-	else
-	{
-		return -1;
-	}
-	
+	int file = creat(fname, 0777);
+	write(file, buf, size);
 }
 
 /*
