@@ -138,9 +138,11 @@ void fileman_dir(int fd, char *dname)
 	dir = opendir(dname);
 	while((dp = readdir(dir)) != NULL)
 	{
+		char *temp;
 		if(strcmp(dp->d_name, ".") == 0   || strcmp(dp->d_name, "..") == 0)
 			continue;
-		
+		temp = dp->d_name;
+		dir = opendir(temp);
 		printf("%s \n",dp->d_name);
 	}
 
