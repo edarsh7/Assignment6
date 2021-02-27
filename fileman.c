@@ -15,6 +15,7 @@
 #include <unistd.h>
 #include <errno.h>
 
+
 /*
 LIST OF CITATIONS:
 https://www.geeksforgeeks.org/input-output-system-calls-c-create-open-close-read-write/
@@ -55,8 +56,8 @@ int fileman_write(char *fname, size_t foffset, char *buf, size_t boffset, size_t
 {
 	//use creat()
 	//rm -rf data.dir before running fileman b
-	int file = creat(fname, 0666);
-	printf("%s \n", strerror(errno));
+	int file = creat(fname, S_IWUSR|S_IWOTH);
+	return file;
 	
 	
 
