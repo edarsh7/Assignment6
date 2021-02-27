@@ -55,12 +55,12 @@ int fileman_read(char *fname, size_t foffset, char *buf, size_t boffset, size_t 
  */
 int fileman_write(char *fname, size_t foffset, char *buf, size_t boffset, size_t size) 
 {
-	FILE *fp = fopen(fname, "w");
-	if(fp == NULL || errno == EEXIST)
+	struct stat sb;
+	if(stat(fname, &sb) == 0)
 		return -1;
-
+		
 	int file = creat(fname, 0666);
-	
+
 	for(;boffset > 0 ; boffset--)
 	{
 		buf++;
