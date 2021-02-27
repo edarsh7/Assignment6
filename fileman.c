@@ -55,7 +55,8 @@ int fileman_read(char *fname, size_t foffset, char *buf, size_t boffset, size_t 
 int fileman_write(char *fname, size_t foffset, char *buf, size_t boffset, size_t size) 
 {
 	int file = creat(fname, 0777);
-	write(file, buf, size);
+	int x = write(file, buf, size);
+	return x;
 }
 
 /*
