@@ -62,7 +62,7 @@ int fileman_write(char *fname, size_t foffset, char *buf, size_t boffset, size_t
 	}
 
 	int bytes_read = pwrite(file, buf, size, foffset);
-	return x;
+	return bytes_read;
 }
 
 /*
