@@ -52,8 +52,12 @@ int fileman_read(char *fname, size_t foffset, char *buf, size_t boffset, size_t 
  */
 int fileman_write(char *fname, size_t foffset, char *buf, size_t boffset, size_t size) 
 {
-
-	return 0;
+	//use creat()
+	//rm -rf data.dir before running fileman b
+	int file = creat(fname, S_IWUSR);
+	if(file == -1)
+		return -1;
+		
 }
 
 /*
