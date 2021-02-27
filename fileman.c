@@ -138,7 +138,7 @@ void fileman_dir(int fd, char *dname)
 	dir = opendir(dname);
 	while((dp = readdir(dir)) != NULL)
 	{
-		if(dp->d_name == ".")
+		if(dp->d_name == ".\0")
 			continue;
 		if((dir = opendir(dp->d_name)) == NULL)
 			break;
