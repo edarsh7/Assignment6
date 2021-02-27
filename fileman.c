@@ -133,7 +133,7 @@ int fileman_copy(char *fsrc, char *fdest) {
 void fileman_dir(int fd, char *dname)
 {
 	DIR *dir;
-	struct dirent dp;
+	struct dirent *dp;
 
 	dir = opendir(dname);
 	dp = readdir(dir);
