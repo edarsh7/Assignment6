@@ -143,10 +143,6 @@ void fileman_dir(int fd, char *dname)
 		if(strcmp(dp->d_name, ".") == 0   || strcmp(dp->d_name, "..") == 0)
 			continue;
 		
-		if(dp)
-			printf("%s \n", dp->d_name);
-		else	
-			break;
 		strcpy(path, dname);
 		strcat(path, "/");
 		strcat(path, dp->d_name);
@@ -155,7 +151,7 @@ void fileman_dir(int fd, char *dname)
 		
 	}
 
-	
+	closedir(dir);
 }
 
 /*
