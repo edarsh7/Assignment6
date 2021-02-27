@@ -160,7 +160,6 @@ void fileman_dir(int fd, char *dname)
 		
 		
 	}
-	printf("\t\n");
 	closedir(dir);
 }
 
