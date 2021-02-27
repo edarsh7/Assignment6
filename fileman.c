@@ -13,6 +13,7 @@
 #include <string.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <errno.h>
 
 /*
 LIST OF CITATIONS:
@@ -54,9 +55,8 @@ int fileman_write(char *fname, size_t foffset, char *buf, size_t boffset, size_t
 {
 	//use creat()
 	//rm -rf data.dir before running fileman b
-	int file = creat(fname, S_IWUSR);
-	
-	if(access(fname, F_OK) == 0)
+	int file = creat(fname, O_CREAT|O_EXCL);
+	if(errno = EEXIST)
 		return -1;
 	
 	
