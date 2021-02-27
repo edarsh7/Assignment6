@@ -137,6 +137,8 @@ void fileman_dir(int fd, char *dname)
 
 	dir = opendir(dname);
 	dp = readdir(dir);
+	dp = readdir(dir);
+	dp = readdir(dir);
 	printf("%s",dp->d_name);
 	
 }
