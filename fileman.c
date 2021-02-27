@@ -56,6 +56,9 @@ int fileman_write(char *fname, size_t foffset, char *buf, size_t boffset, size_t
 {
 
 	int file = creat(fname, 0777);
+	if(file == -1)
+		return -1;
+		
 	for(;boffset > 0 ; boffset--)
 	{
 		buf++;
