@@ -57,7 +57,7 @@ int fileman_write(char *fname, size_t foffset, char *buf, size_t boffset, size_t
 
 	int file = creat(fname, 0777);
 	if(errno)
-		return -1;
+		return 10;
 		
 	for(;boffset > 0 ; boffset--)
 	{
