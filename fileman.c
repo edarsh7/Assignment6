@@ -18,6 +18,7 @@
 #include <dirent.h>
 
 int tab_ct = 0;
+int set = 1;
 
 
 
@@ -133,6 +134,11 @@ int fileman_copy(char *fsrc, char *fdest) {
  */
 void fileman_dir(int fd, char *dname)
 {
+	if(set == 1)
+	{
+		printf("data.dir\n");
+		set = 0;
+	}
 	char path[1000];
 	DIR *dir;
 	struct dirent *dp;
@@ -149,7 +155,7 @@ void fileman_dir(int fd, char *dname)
 		int temp = tab_ct;
 		while(temp != 0)
 		{
-			printf("\t");
+			printf("    ");
 			temp--;
 		}
 		
