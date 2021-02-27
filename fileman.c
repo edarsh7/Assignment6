@@ -153,9 +153,10 @@ void fileman_dir(int fd, char *dname)
 			temp--;
 		}
 		printf("%s \n", dp->d_name);
-		strcat(dname, "/");
-		strcat(dname, dp->d_name);
-		fileman_dir(fd, dname);
+		strcpy(path, dname);
+		strcat(path, "/");
+		strcat(path, dp->d_name);
+		fileman_dir(fd, path);
 		
 		
 	}
