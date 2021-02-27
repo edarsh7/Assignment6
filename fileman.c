@@ -55,7 +55,7 @@ int fileman_read(char *fname, size_t foffset, char *buf, size_t boffset, size_t 
  */
 int fileman_write(char *fname, size_t foffset, char *buf, size_t boffset, size_t size) 
 {
-	FILE *fp = fopen(fname, 0666);
+	FILE *fp = fopen(fname, "w");
 	if(fp == NULL || errno == EEXIST)
 		return -1;
 
