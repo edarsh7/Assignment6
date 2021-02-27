@@ -54,15 +54,10 @@ int fileman_read(char *fname, size_t foffset, char *buf, size_t boffset, size_t 
  */
 int fileman_write(char *fname, size_t foffset, char *buf, size_t boffset, size_t size) 
 {
-	//use creat()
-	//rm -rf data.dir before running fileman b
-	int fd;
-           mode_t mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH;
-
-           
-           fd = creat(fname, mode);
-	return fd;
-
+	FILE *file = fopen(fname, "w");
+	if(!file)
+		return -1;
+	
 }
 
 /*
