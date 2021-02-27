@@ -57,7 +57,9 @@ int fileman_write(char *fname, size_t foffset, char *buf, size_t boffset, size_t
 	int file = creat(fname, S_IWUSR);
 	if(file == -1)
 		return -1;
-		
+	else
+		printf("wtf man\n");
+
 }
 
 /*
