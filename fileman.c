@@ -58,7 +58,7 @@ int fileman_write(char *fname, size_t foffset, char *buf, size_t boffset, size_t
 
 	int file = creat(fname, 0777);
 	struct stat sb;
-	if(lstat(fname, &sb) == -1)
+	if(stat(fname, &sb) == -1)
 		return -1;
 	
 	
