@@ -134,17 +134,16 @@ void fileman_dir(int fd, char *dname)
 {
 	DIR *dir;
 	struct dirent *dp;
+	FILE *ent;;
 
 	dir = opendir(dname);
 	while((dp = readdir(dir)) != NULL)
 	{
-		char *temp;
 		if(strcmp(dp->d_name, ".") == 0   || strcmp(dp->d_name, "..") == 0)
 			continue;
-		temp = dp->d_name;
-		printf("%s \n",dp->d_name);
-		if((dir = opendir(temp)) == NULL)
-			break;
+		
+		ent = fopen(dp->d_name, "rw");
+		printf("%s \n", dp->d_name);
 		
 	}
 
