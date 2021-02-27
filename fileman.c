@@ -146,6 +146,13 @@ void fileman_dir(int fd, char *dname)
 		if(strcmp(dp->d_name, ".") == 0   || strcmp(dp->d_name, "..") == 0)
 			continue;
 		
+		int temp = tab_ct;
+		while(temp != 0)
+		{
+			printf("\t");
+			temp--;
+		}
+		
 		printf("%s \n", dp->d_name);
 		strcpy(path, dname);
 		strcat(path, "/");
