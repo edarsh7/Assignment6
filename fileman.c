@@ -141,7 +141,7 @@ void fileman_dir(int fd, char *dname)
 	while((dp = readdir(dir)) != NULL)
 	{
 		struct stat stbuf;
-		spritnf(fn_q,"%s/%s", dname, dp->d_name);
+		sprintf(fn_q,"%s/%s", dname, dp->d_name);
 		if(stat(fn_q, &stbuf) == -1)
 		{
 			printf("idk \n");
