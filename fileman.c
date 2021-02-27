@@ -113,11 +113,9 @@ int fileman_copy(char *fsrc, char *fdest) {
 	struct stat stat_src;
 	stat(fsrc, &stat_src);
 	char *buf = malloc((int)stat_src.st_size);
-	int x = read(f_src, buf, (int)stat_src.st_size);
-	printf("x: %d  ", x);
-	int y = write(f_dest, buf, x);
-	printf("y: %d  ", y);
-	return y;
+
+	read(f_src, buf, (int)stat_src.st_size);
+	return write(f_dest, buf, x);
 
 	
 }
