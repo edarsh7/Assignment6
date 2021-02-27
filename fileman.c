@@ -55,9 +55,8 @@ int fileman_write(char *fname, size_t foffset, char *buf, size_t boffset, size_t
 {
 	//use creat()
 	//rm -rf data.dir before running fileman b
-	int file;
-	if((file = creat(fname, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH))== -1)
-		return -1;
+	int file = creat(fname, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
+	printf("%d \n", file);
 	
 	
 
