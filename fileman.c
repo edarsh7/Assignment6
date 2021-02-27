@@ -110,7 +110,7 @@ int fileman_copy(char *fsrc, char *fdest) {
 
 	struct stat stat_src;
 	stat(fsrc, &stat_src);
-	printf("%d", stat_src.st_size);
+	printf("%d", (int)stat_src.st_size);
 	
 }
 
