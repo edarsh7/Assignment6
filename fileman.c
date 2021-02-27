@@ -21,8 +21,14 @@
 LIST OF CITATIONS:
 https://www.geeksforgeeks.org/input-output-system-calls-c-create-open-close-read-write/
 https://www.tutorialspoint.com/cprogramming/c_file_io.htm
+
+*used for figuring out pwrite() and pread() in fileman_read and fileman_write*
 https://stackoverflow.com/questions/19780919/read-write-from-file-descriptor-at-offset
+
 https://linux.die.net/man/2/creat
+
+*used for figuring out stats() function in fileman_write
+https://stackoverflow.com/questions/230062/whats-the-best-way-to-check-if-a-file-exists-in-c
 */
 
 /*
@@ -58,8 +64,8 @@ int fileman_write(char *fname, size_t foffset, char *buf, size_t boffset, size_t
 	struct stat sb;
 	if(stat(fname, &sb) == 0)
 		return -1;
-		
-	int file = creat(fname, 0666);
+
+	int file = creat(fname, 0777);
 
 	for(;boffset > 0 ; boffset--)
 	{
