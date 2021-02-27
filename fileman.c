@@ -139,7 +139,7 @@ void fileman_dir(int fd, char *dname)
 
 	while((dirEntry = readdir(dir)) != 0)
 	{
-		sprintf(name, "%s/%s", dirname, dirEntry->d_name);
+		sprintf(name, "%s/%s", dname, dirEntry->d_name);
 		lstat(name, &inode);
 	}
 	
