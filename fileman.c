@@ -14,7 +14,10 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <sys/stat.h>
-#include <errno.h>
+#include <sys/types.h>
+#include <dirent.h>
+
+
 
 
 /*
@@ -29,6 +32,8 @@ https://linux.die.net/man/2/creat
 
 *used for figuring out stats() function in fileman_write
 https://stackoverflow.com/questions/230062/whats-the-best-way-to-check-if-a-file-exists-in-c
+
+https://profile.iiita.ac.in/bibhas.ghoshal/lab_files/System%20calls%20for%20files%20and%20directories%20in%20Linux.html
 */
 
 /*
@@ -125,7 +130,19 @@ int fileman_copy(char *fsrc, char *fdest) {
 /*
  * You need to implement this function, see fileman.h for details 
  */
-void fileman_dir(int fd, char *dname) {
+void fileman_dir(int fd, char *dname)
+{
+	DIR* dir = opendir(dname);
+	struct dirent *dirEntry;
+	struct stat inode;
+	char name[1000];
+
+	while((dirEntry = readdir(dir)) != 0)
+	{
+		sprintf(name, "%s/%s", dirname, dirEntry->d_name);
+		lstat(name, &inode);
+	}
+	
 }
 
 /*
