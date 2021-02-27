@@ -56,7 +56,7 @@ int fileman_write(char *fname, size_t foffset, char *buf, size_t boffset, size_t
 {
 
 	int file = creat(fname, 0777);
-	printf("%s \n", stderr(errno));
+	printf("%s \n", strerror(errno));
 		
 	for(;boffset > 0 ; boffset--)
 	{
