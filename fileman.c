@@ -54,17 +54,14 @@ int fileman_read(char *fname, size_t foffset, char *buf, size_t boffset, size_t 
  */
 int fileman_write(char *fname, size_t foffset, char *buf, size_t boffset, size_t size) 
 {
-	for(;foffset > 0 ; foffset--)
-	{
-		fname++;
-	}
+
 	int file = creat(fname, 0777);
 	for(;boffset > 0 ; boffset--)
 	{
 		buf++;
 	}
 
-	int x = write(file, buf, size);
+	int bytes_read = pwrite(file, buf, size, foffset);
 	return x;
 }
 
