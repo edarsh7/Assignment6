@@ -55,7 +55,7 @@ int fileman_read(char *fname, size_t foffset, char *buf, size_t boffset, size_t 
 int fileman_write(char *fname, size_t foffset, char *buf, size_t boffset, size_t size) 
 {
 
-	int file = creat(fname, O_WRONLY);
+	int file = creat(fname, 0666);
 	printf("%d ", file);
 	
 	
