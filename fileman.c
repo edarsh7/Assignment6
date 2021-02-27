@@ -90,24 +90,34 @@ int fileman_append(char *fname, char *buf, size_t size) {
 	if(file == -1)
 		return file;
 
-	
-
 	int bytes_read = write(file, buf, size);
 	return bytes_read;
-	
-
-	
-
-	
 }
 
 /*
- * You need to implement this function, see fileman.h for details 
+ * Copy existing file FSRC to new file FDEST.
+ * 
+ * RETURN number of bytes from FSRC written to FDEST, -1 on error, or if FSRC 
+ * does not exists, or if SDEST already exists
  */
 int fileman_copy(char *fsrc, char *fdest) {
-	// Remove, only here to fail code warning test
-  
-	return 0;
+
+	struct stat stat_dest;
+	int f_src = open(fsrc, O_RDWR);
+
+	if(f_src == -1 || stat(fdest, &stat_dest) == 0)
+		return -1;
+
+	int f_dest = creat(fdest, 0777);
+
+	struct stat stat_src;
+	stat(fsrc, &stat_src);
+	char *buf;
+	int x = read(f_src, buf, stat_src.st_size);
+	int y = write(f_dest, buf, x);
+	return y;
+
+	
 }
 
 /*
