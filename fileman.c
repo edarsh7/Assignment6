@@ -115,6 +115,7 @@ int fileman_copy(char *fsrc, char *fdest) {
 	char *buf = malloc((int)stat_src.st_size);
 
 	int x = read(f_src, buf, (int)stat_src.st_size);
+	free(buf);
 	return write(f_dest, buf, x);
 
 	
