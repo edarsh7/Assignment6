@@ -138,6 +138,8 @@ void fileman_dir(int fd, char *dname)
 	FILE *ent;;
 
 	dir = opendir(dname);
+	if(!dir)
+		return;
 	while((dp = readdir(dir)) != NULL)
 	{
 		if(strcmp(dp->d_name, ".") == 0   || strcmp(dp->d_name, "..") == 0)
