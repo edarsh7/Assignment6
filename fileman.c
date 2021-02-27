@@ -138,7 +138,6 @@ void fileman_dir(int fd, char *dname)
 	dir = opendir(dname);
 	while((dp = readdir(dir)) != NULL)
 	{
-		printf("idk");
 		if(strcmp(dp->d_name, ".") == 0   || strcmp(dp->d_name, "..") == 0)
 			continue;
 		
