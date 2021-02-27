@@ -153,7 +153,7 @@ void fileman_dir(int fd, char *dname)
 		
 		
 	}
-
+	printf("\n");
 	closedir(dir);
 }
 
