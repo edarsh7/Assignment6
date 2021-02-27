@@ -135,13 +135,25 @@ void fileman_dir(int fd, char *dname)
 	DIR *dir;
 	struct dirent *dp;
 
+	char fn_q[100];
+	char nn_q[100];
 	dir = opendir(dname);
 	while((dp = readdir(dir)) != NULL)
 	{
-		printf("%s \n", dp->d_name);
+		struct stat stbuf;
+		spritnf(fn_q,"%s/%s", dname, dp->d_name);
+		if(stat(fn_q, &stbuf) == -1)
+		{
+			printf("idk \n")
+			continue;
+		}
+		if((stbuf.st_mode & S_IFMT) == S_IFDIR)
+		{
+			continue;
+		}
+	
 	}
 
-	closedir(dir);
 	
 }
 
