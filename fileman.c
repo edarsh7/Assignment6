@@ -90,10 +90,7 @@ int fileman_append(char *fname, char *buf, size_t size) {
 	if(file == -1)
 		return file;
 
-	for(;boffset > 0 ; boffset--)
-	{
-		buf++;
-	}
+	
 
 	int bytes_read = write(file, buf, size);
 	return bytes_read;
