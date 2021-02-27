@@ -56,7 +56,7 @@ int fileman_write(char *fname, size_t foffset, char *buf, size_t boffset, size_t
 	//use creat()
 	//rm -rf data.dir before running fileman b
 	int file = creat(fname, O_CREAT|O_EXCL);
-	if(errno = EEXIST)
+	if(errno == EEXIST)
 		return -1;
 	
 	
