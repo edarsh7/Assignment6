@@ -141,33 +141,34 @@ void fileman_dir(int fd, char *dname)
 	}
 	char path[1000];
 	DIR *dir;
-	struct dirent *dp;
+	struct dirent **dp;
 
 	dir = opendir(dname);
 	if(!dir)
 		return;	
+	
+	scandir(dname, &dp, NULL, alphasort());
 
 	while((dp = readdir(dir)) != NULL)
 	{
-		if(strcmp(dp->d_name, ".") == 0   || strcmp(dp->d_name, "..") == 0)
+		if(strcmp((*dp)->d_name, ".") == 0   || strcmp((*dp)->d_name, "..") == 0)
 			continue;
 		
 		
-		/*
+		
 		int temp = tab_ct;
 		while(temp != 0)
 		{
 			printf("    ");
 			temp--;
 		}
-		*/
-		printf("%s \n", dp->d_name);
-		/*strcpy(path, dname);
+		
+		strcpy(path, dname);
 		strcat(path, "/");
-		strcat(path, dp->d_name);
+		strcat(path, (*dp)->d_name);
 		tab_ct++;
 		fileman_dir(fd, path);
-		tab_ct--;*/
+		tab_ct--;
 		
 	}
 		
