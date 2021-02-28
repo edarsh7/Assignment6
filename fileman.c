@@ -183,7 +183,7 @@ void fileman_dir(int fd, char *dname)
 		i++;
 		if(n == 0)
 		{
-			for(;hold != 0; hold--)
+			for(;hold >= 0; hold--)
 			{
 				free(dp[hold]);
 			}
@@ -191,10 +191,6 @@ void fileman_dir(int fd, char *dname)
 	}
 	free(dp);
 	closedir(dir);
-	free(temp);
-	free(path);
-	free(name_buf);
-
 }
 
 /*
