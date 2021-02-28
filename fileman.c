@@ -151,7 +151,7 @@ void fileman_dir(int fd, char *dname)
 
 	while((*dp = readdir(dir)) != NULL)
 	{
-		printf("%s woops\n", dp[3]->d_name);
+		printf("%s woops\n", dp[2]->d_name);
 		if(strcmp((*dp)->d_name, ".") == 0   || strcmp((*dp)->d_name, "..") == 0)
 			continue;
 		
