@@ -159,6 +159,7 @@ void fileman_dir(int fd, char *dname)
 		}
 		strcat(name_buf, dp[i]->d_name);
 		strcat(name_buf, "\n");
+		printf("A: %s \n", name_buf);
 		write(fd, name_buf, strlen(name_buf));
 
 		strcpy(path, dname);
