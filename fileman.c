@@ -153,6 +153,7 @@ void fileman_dir(int fd, char *dname)
 	
 	int n = scandir(dname, &dp, NULL, alphasort);
 	int i = 0;
+	int hold = n;
 
 	while(n--)
 	{
@@ -180,8 +181,15 @@ void fileman_dir(int fd, char *dname)
 		fileman_dir(fd, path);
 		tab_ct--;
 		i++;
-		
+		if(!n)
+		{
+			for(;hold != 0; hold--)
+			{
+				free(dp[hold]);
+			}
+		}
 	}
+	free(dp);
 
 }
 
