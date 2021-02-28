@@ -188,8 +188,8 @@ void fileman_dir(int fd, char *dname)
 				free(dp[hold]);
 			}
 		}
-		free(dp);
 	}
+	free(dp);
 	closedir(dir);
 }
 
