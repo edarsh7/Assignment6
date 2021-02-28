@@ -152,11 +152,12 @@ void fileman_dir(int fd, char *dname)
 
 	while(n-- && dp[n] != NULL)
 	{
-		printf("%s :x:: \n",dp[i]->d_name);
-		i++;
+
 		if(strcmp(dp[n]->d_name, ".") == 0   || strcmp(dp[n]->d_name, "..") == 0)
 			continue;
 		
+		printf("%s : \n",dp[i]->d_name);
+		i++;
 		//printf("%s \n", dp[n]->d_name);
 		int temp = tab_ct;
 		while(temp != 0)
