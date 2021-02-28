@@ -148,7 +148,7 @@ void fileman_dir(int fd, char *dname)
 		return;	
 	
 	int n =scandir(dname, &dp, NULL, alphasort);
-	if(n = -1)
+	if(n == -1)
 		return;
 	int i = 0;
 
