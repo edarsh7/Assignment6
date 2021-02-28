@@ -133,7 +133,7 @@ int fileman_copy(char *fsrc, char *fdest) {
  */
 void fileman_dir(int fd, char *dname)
 {
-	char temp2[20];
+	char temp2[20] = "";
 	if(set)
 	{
 		strcpy(temp2, dname);
@@ -142,7 +142,7 @@ void fileman_dir(int fd, char *dname)
 		set = 0;
 	}
 
-	char path[1000];
+	char path[1000] = "";
 	char name_buf[1000];
 	DIR *dir;
 	struct dirent **dp;
