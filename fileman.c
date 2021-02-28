@@ -158,8 +158,6 @@ void fileman_dir(int fd, char *dname)
 
 	while(n--)
 	{
-		if(!dp[i])
-			dp[i] = NULL;
 		strcpy(name_buf, "");
 		if(strcmp(dp[i]->d_name, ".") == 0   || strcmp(dp[i]->d_name, "..") == 0)
 		{	
@@ -184,6 +182,8 @@ void fileman_dir(int fd, char *dname)
 		fileman_dir(fd, path);
 		tab_ct--;
 		i++;
+
+		//VALGRIND ERROR REMOVER
 		if(n == 0)
 		{
 			while(hold >= 0)
@@ -193,6 +193,7 @@ void fileman_dir(int fd, char *dname)
 			}
 		}
 	}
+	//VALGRIND ERROR REMOVER
 	free(dp);
 	closedir(dir);
 }
