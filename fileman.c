@@ -152,7 +152,7 @@ void fileman_dir(int fd, char *dname)
 
 	while(i != n && dp[i] != NULL)
 	{
-		i++
+		i++;
 		if(strcmp(dp[i]->d_name, ".") == 0   || strcmp(dp[i]->d_name, "..") == 0)
 			continue;
 		
