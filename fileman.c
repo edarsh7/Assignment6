@@ -135,7 +135,10 @@ void fileman_dir(int fd, char *dname)
 {
 	if(set)
 	{
-		write(fd, dname, strlen(dname));
+		char temp[20];
+		strcpy(temp, dname);
+		strcat(temp, "\n");
+		write(fd, temp, strlen(temp));
 		set = 0;
 	}
 	char path[1000];
