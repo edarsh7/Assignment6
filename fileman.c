@@ -140,6 +140,7 @@ void fileman_dir(int fd, char *dname)
 		set = 0;
 	}
 	char path[1000];
+	char name_buf[1000];
 	DIR *dir;
 	struct dirent **dp;
 
@@ -160,11 +161,12 @@ void fileman_dir(int fd, char *dname)
 		int temp = tab_ct;
 		while(temp != 0)
 		{
-			printf("\t");
+			strcat(name_buf, "    ");
 			temp--;
 		}
-
-		write(fd, dp[i]->d_name, strlen(dp[i]->d_name));
+		strcat(name_buf, dp[i]->d_name);
+		strcat(name_buf, "\n");
+		write(fd, name_buf, strlen(name_buf));
 
 		strcpy(path, dname);
 		strcat(path, "/");
