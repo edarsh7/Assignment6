@@ -147,11 +147,12 @@ void fileman_dir(int fd, char *dname)
 	if(!dir)
 		return;	
 	
-	int n = scandir(dname, &dp, NULL, alphasort);
+	int n =scandir(dname, &dp, NULL, alphasort);
 
-	while(n--)
+	while((*dp = readdir(dir)) != NULL)
 	{
-		if(strcmp(dp[n]->d_name, ".") == 0   || strcmp(dp[n]->d_name, "..") == 0)
+		printf("%s \n", dp[3]->d_name);
+		if(strcmp((*dp)->d_name, ".") == 0   || strcmp((*dp)->d_name, "..") == 0)
 			continue;
 		
 		
