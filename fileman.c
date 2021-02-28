@@ -152,7 +152,6 @@ void fileman_dir(int fd, char *dname)
 
 	while(n-- && dp[i] != NULL)
 	{
-		i++;
 		if(strcmp(dp[i]->d_name, ".") == 0   || strcmp(dp[i]->d_name, "..") == 0)
 			continue;
 		
@@ -172,6 +171,7 @@ void fileman_dir(int fd, char *dname)
 		tab_ct++;
 		fileman_dir(fd, path);
 		tab_ct--;
+		i++;
 		
 	}
 		
