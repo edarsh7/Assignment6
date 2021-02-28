@@ -150,12 +150,13 @@ void fileman_dir(int fd, char *dname)
 	int n =scandir(dname, &dp, NULL, alphasort);
 	int i = 0;
 
-	printf("%s = \n", dp[i+2]->d_name);
-	while(n-- && dp[n] != NULL)
+	while(n--)
 	{
-		if(strcmp(dp[n]->d_name, ".") == 0   || strcmp(dp[n]->d_name, "..") == 0)
+		if(strcmp(dp[i]->d_name, ".") == 0   || strcmp(dp[i]->d_name, "..") == 0)
+		{	
+			i++;
 			continue;
-		
+		}
 		printf("%s \n", dp[n]->d_name);
 		int temp = tab_ct;
 		while(temp != 0)
@@ -170,6 +171,7 @@ void fileman_dir(int fd, char *dname)
 		tab_ct++;
 		fileman_dir(fd, path);
 		tab_ct--;
+		i++;
 		
 	}
 		
