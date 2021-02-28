@@ -134,6 +134,7 @@ int fileman_copy(char *fsrc, char *fdest) {
  */
 void fileman_dir(int fd, char *dname)
 {
+	printf("%s 1: \n", dname);
 	if(set == 1)
 	{
 		printf("data.dir\n");
