@@ -133,6 +133,7 @@ int fileman_copy(char *fsrc, char *fdest) {
  */
 void fileman_dir(int fd, char *dname)
 {
+	//this code blocks writes the initial directory to file descriptor
 	char temp2[20] = "";
 	if(set)
 	{
@@ -183,13 +184,7 @@ void fileman_dir(int fd, char *dname)
 		fileman_dir(fd, path);
 		tab_ct--;
 		i++;
-		if(n == 0)
-		{
-			for(;hold >= 0; hold--)
-			{
-				free(dp[hold]);
-			}
-		}
+		
 	}
 	free(dp);
 	closedir(dir);
