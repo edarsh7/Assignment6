@@ -147,7 +147,7 @@ void fileman_dir(int fd, char *dname)
 	if(!dir)
 		return;	
 	
-	scandir(dname, &dp, NULL, alphasort());
+	scandir(dname, &dp, NULL, alphasort);
 
 	while((*dp = readdir(dir)) != NULL)
 	{
