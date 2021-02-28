@@ -167,7 +167,7 @@ void fileman_dir(int fd, char *dname)
 		
 		strcpy(path, dname);
 		strcat(path, "/");
-		strcat(path, dp[n]->d_name);
+		strcat(path, dp[i]->d_name);
 		tab_ct++;
 		fileman_dir(fd, path);
 		tab_ct--;
