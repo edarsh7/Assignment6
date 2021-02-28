@@ -150,7 +150,7 @@ void fileman_dir(int fd, char *dname)
 	int n =scandir(dname, &dp, NULL, alphasort);
 	int i = 0;
 
-	while(i != n && dp[i] != NULL)
+	while(i != n)
 	{
 		i++;
 		if(strcmp(dp[i]->d_name, ".") == 0   || strcmp(dp[i]->d_name, "..") == 0)
