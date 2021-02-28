@@ -181,7 +181,7 @@ void fileman_dir(int fd, char *dname)
 		fileman_dir(fd, path);
 		tab_ct--;
 		i++;
-		if(!n)
+		if(n == 0)
 		{
 			for(;hold != 0; hold--)
 			{
