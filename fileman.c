@@ -133,9 +133,9 @@ int fileman_copy(char *fsrc, char *fdest) {
  */
 void fileman_dir(int fd, char *dname)
 {
+	char temp[20];
 	if(set)
 	{
-		char temp[20];
 		strcpy(temp, dname);
 		strcat(temp, "\n");
 		write(fd, temp, strlen(temp));
