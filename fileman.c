@@ -154,7 +154,7 @@ void fileman_dir(int fd, char *dname)
 	
 	int n = scandir(dname, &dp, NULL, alphasort);
 	int i = 0;
-	int hold = n;
+	int hold = n-1;
 
 	while(n--)
 	{
