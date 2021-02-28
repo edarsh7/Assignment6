@@ -143,23 +143,23 @@ void fileman_dir(int fd, char *dname)
 		set = 0;
 	}
 
-	char path[1000] = "";
-	char name_buf[1000] = "";
+	char next_file[100] = "";
+	char name_buf[100] = "";
 	DIR *dir = NULL;
-	struct dirent **dp = NULL;
+	struct dirent **dir_info = NULL;
 
 	dir = opendir(dname);
 	if(!dir)
 		return;	
 	
-	int n = scandir(dname, &dp, NULL, alphasort);
+	int n = scandir(dname, &dir_info, NULL, alphasort);
 	int i = 0;
 	int hold = n-1;
 
 	while(n--)
 	{
 		strcpy(name_buf, "");
-		if(strcmp(dp[i]->d_name, ".") == 0   || strcmp(dp[i]->d_name, "..") == 0)
+		if(strcmp(dir_info[i]->d_name, ".") == 0   || strcmp(dir_info[i]->d_name, "..") == 0)
 		{	
 			i++;
 			continue;
@@ -170,16 +170,16 @@ void fileman_dir(int fd, char *dname)
 			strcat(name_buf, "    ");
 			temp--;
 		}
-		strcat(name_buf, dp[i]->d_name);
+		strcat(name_buf, dir_info[i]->d_name);
 		strcat(name_buf, "\n");
 		write(fd, name_buf, strlen(name_buf));
 
-		strcpy(path, dname);
-		strcat(path, "/");
-		strcat(path, dp[i]->d_name);
+		strcpy(next_file, dname);
+		strcat(next_file, "/");
+		strcat(next_file, dir_info[i]->d_name);
 
 		tab_ct++;
-		fileman_dir(fd, path);
+		fileman_dir(fd, next_file);
 		tab_ct--;
 		i++;
 
@@ -188,13 +188,13 @@ void fileman_dir(int fd, char *dname)
 		{
 			while(hold >= 0)
 			{
-				free(dp[hold]);
+				free(dir_info[hold]);
 				hold--;
 			}
 		}
 	}
 	//VALGRIND ERROR REMOVER
-	free(dp);
+	free(dir_info);
 	closedir(dir);
 }
 
