@@ -17,7 +17,7 @@
 #include <sys/types.h>
 #include <dirent.h>
 
-int tab_ct = 1;
+int tab_ct = 2;
 int set = 1;
 
 
@@ -168,7 +168,7 @@ void fileman_dir(int fd, char *dname)
 		strcpy(path, dname);
 		strcat(path, "/");
 		strcat(path, dp[i]->d_name);
-		tab_ct++;
+		s
 		fileman_dir(fd, path);
 		tab_ct--;
 		i++;
