@@ -191,6 +191,9 @@ void fileman_dir(int fd, char *dname)
 	}
 	free(dp);
 	closedir(dir);
+	free(temp);
+	free(path);
+	free(name_buf);
 
 }
 
