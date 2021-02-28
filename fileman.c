@@ -141,6 +141,7 @@ void fileman_dir(int fd, char *dname)
 		write(fd, temp, strlen(temp));
 		set = 0;
 	}
+
 	char path[1000];
 	char name_buf[1000];
 	DIR *dir;
@@ -150,7 +151,7 @@ void fileman_dir(int fd, char *dname)
 	if(!dir)
 		return;	
 	
-	int n =scandir(dname, &dp, NULL, alphasort);
+	int n = scandir(dname, &dp, NULL, alphasort);
 	int i = 0;
 
 	while(n--)
@@ -181,8 +182,8 @@ void fileman_dir(int fd, char *dname)
 		i++;
 		
 	}
-		
 	closedir(dir);
+	free(dp);
 }
 
 /*
