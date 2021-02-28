@@ -180,9 +180,8 @@ void fileman_dir(int fd, char *dname)
 		fileman_dir(fd, path);
 		tab_ct--;
 		i++;
-		
+		free(dp[i]);
 	}
-	closedir(dir);
 	free(dp);
 }
 
