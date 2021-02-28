@@ -146,6 +146,7 @@ void fileman_dir(int fd, char *dname)
 
 	while(n--)
 	{
+		strcpy(name_buf, "");
 		if(strcmp(dp[i]->d_name, ".") == 0   || strcmp(dp[i]->d_name, "..") == 0)
 		{	
 			i++;
