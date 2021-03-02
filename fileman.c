@@ -174,7 +174,7 @@ void fileman_dir(int fd, char *dname)
 			temp--;
 		}
 		strcat(name_buf, dir_info[i]->d_name);
-		strcat(name_buf, "\n");d
+		strcat(name_buf, "\n");
 		
 		//writing buffer to fd
 		write(fd, name_buf, strlen(name_buf));
