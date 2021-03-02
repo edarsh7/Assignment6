@@ -17,6 +17,7 @@
 #include <sys/types.h>
 #include <dirent.h>
 
+//used for recursively getting number of tabs to print
 int tab_ct = 1;
 int set = 1;
 
@@ -147,13 +148,13 @@ void fileman_dir(int fd, char *dname)
 	char name_buf[100] = "";
 	DIR *dir = NULL;
 	struct dirent **dir_info = NULL;
+	int i = 0;
 
 	dir = opendir(dname);
 	if(!dir)
 		return;	
 	
 	int n = scandir(dname, &dir_info, NULL, alphasort);
-	int i = 0;
 	int hold = n-1;
 
 	while(n--)
@@ -165,19 +166,25 @@ void fileman_dir(int fd, char *dname)
 			continue;
 		}
 		int temp = tab_ct;
+		
+		//creating a buffer that holds the correct line to print
 		while(temp != 0)
 		{
 			strcat(name_buf, "    ");
 			temp--;
 		}
 		strcat(name_buf, dir_info[i]->d_name);
-		strcat(name_buf, "\n");
+		strcat(name_buf, "\n");d
+		
+		//writing buffer to fd
 		write(fd, name_buf, strlen(name_buf));
 
+		//creating buffer for the next files name
 		strcpy(next_file, dname);
 		strcat(next_file, "/");
 		strcat(next_file, dir_info[i]->d_name);
 
+		//recursive call into next subdirectory
 		tab_ct++;
 		fileman_dir(fd, next_file);
 		tab_ct--;
